@@ -54,3 +54,20 @@ body {
 .temp-buttons {
     background-color: transparent;
 }
+
+.hot-weather {
+    color: red;
+}
+
+.warm-weather {
+    color: orange;
+}
+.cool-weather {
+    color: yellow;
+}
+.chilly-weather {    
+    color: green;
+}
+.freezing-weather {
+    color: teal;
+}
