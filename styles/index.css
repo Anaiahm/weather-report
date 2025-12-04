@@ -28,25 +28,27 @@
     margin-bottom: 20px; */
 /* } */
 
-#background {
+body {
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
 }
 
-.winter-background {
-    background-image: url('../assets/winter.jpg');
+
+.winter-weather {
+    background-image: url('../assets/images/winter-weather.png');
 }
 
-.spring-background {
-    background-image: url('../assets/spring.jpg');
+.spring-weather {
+    background-image: url('../assets/images/spring-weather.png');
 }
 
-.summer-background {
-    background-image: url('../assets/summer.jpg');
+.summer-weather {
+    background-image: url('../assets/images/summer-weather.jpg');
 }
 
-.fall-background {
-    background-image: url('../assets/fall.jpg');
+.fall-weather {
+    background-image: url('../assets/images/fall-weather.jpg');
 }
 
 .temp-buttons {

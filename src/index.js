@@ -1,4 +1,4 @@
-const BASE_URL = "https://ada-weather-report-proxy-server.onrender.com"
+// const BASE_URL = "https://ada-weather-report-proxy-server.onrender.com"
 let state = {
     city: 'Seattle',
     lat: 47.6038321,
@@ -6,50 +6,50 @@ let state = {
     temp: 72
 };
 
-const convertKtoF = e => 1.8 * (e - 273.15) + 32;
-const findLatAndLong = () => {
-    axios.get(BASE_URL + '/location', {
-    params: {
-    q: state.city
-    }
-    }).then(e => (console.log(e.data),
-    state.lat = e.data[0].lat,
-    state.long = e.data[0].lon,
-    getWeather())).catch(e => {
-    console.log('Error finding the latitude and longitude:', e.response);
-    }
-    );
-};
+// const convertKtoF = e => 1.8 * (e - 273.15) + 32;
+// const findLatAndLong = () => {
+//     axios.get(BASE_URL + '/location', {
+//     params: {
+//     q: state.city
+//     }
+//     }).then(e => (console.log(e.data),
+//     state.lat = e.data[0].lat,
+//     state.long = e.data[0].lon,
+//     getWeather())).catch(e => {
+//     console.log('Error finding the latitude and longitude:', e.response);
+//     }
+//     );
+// };
 
-const getWeather = () => {
-    axios.get(BASE_URL + '/weather', {
-        params: {
-        lat: state.lat,
-        lon: state.long
-    }
-    }).then(e => {
-    e = e.data;
-    return state.temp = Math.round(convertKtoF(e.main.temp)),
-    formatTempAndGarden();
-    }
-    ).catch(e => {
-    console.log('Error getting the weather:', e);
-    });
-};
+// const getWeather = () => {
+//     axios.get(BASE_URL + '/weather', {
+//         params: {
+//         lat: state.lat,
+//         lon: state.long
+//     }
+//     }).then(e => {
+//     e = e.data;
+//     return state.temp = Math.round(convertKtoF(e.main.temp)),
+//     formatTempAndGarden();
+//     }
+//     ).catch(e => {
+//     console.log('Error getting the weather:', e);
+//     });
+// };
 
-const updateSky = () => {
-    let e = document.getElementById('skySelect').value;
-    let t = document.getElementById('sky');
-    let n = '';
-    let a = '';
-    'Cloudy' === e ? (n = '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️',
-    a = 'cloudy') : 'Sunny' === e ? (n = '☁️     ☁️   ☁️ ☀️ ☁️  ☁️',
-    a = 'sunny') : 'Rainy' === e ? (n = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧',
-    a = 'rainy') : 'Snowy' === e && (n = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨',
-    a = 'snowy'),
-    t.textContent = n,
-    document.getElementById('gardenContent').classList = 'garden__content ' + a;
-};
+// const updateSky = () => {
+//     let e = document.getElementById('skySelect').value;
+//     let t = document.getElementById('sky');
+//     let n = '';
+//     let a = '';
+//     'Cloudy' === e ? (n = '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️',
+//     a = 'cloudy') : 'Sunny' === e ? (n = '☁️     ☁️   ☁️ ☀️ ☁️  ☁️',
+//     a = 'sunny') : 'Rainy' === e ? (n = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧',
+//     a = 'rainy') : 'Snowy' === e && (n = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨',
+//     a = 'snowy'),
+//     t.textContent = n,
+//     document.getElementById('gardenContent').classList = 'garden__content ' + a;
+// };
 
 const updateCityName = () => {
     let e = document.getElementById('cityNameInput').value;
@@ -63,38 +63,40 @@ const resetCityName = () => {
     updateCityName();
 };
 
-// change the background with temp ; replace emoji with images
-// adds CSS and class name for background images
-
 const formatTempAndBackground = () => {
     const currentTemp = state.temp;
     let tempBackground = '';
 
     if (currentTemp > 80){
-        tempBackground = '';
+        tempBackground = 'summer-weather';
     } else if (currentTemp >= 70){
-        tempBackground = '';
+        tempBackground = 'spring-weather';
     } else if (currentTemp >= 60){
-        tempBackground ='';
+        tempBackground ='fall-weather';
     } else if (currentTemp >= 50){
-        tempBackground = '';
+        tempBackground = 'winter-weather';
     }
+    console.log(tempBackground);
+    console.log(currentTemp);
     document.body.className = tempBackground;
+    document.getElementById('temp-value').textContent = `${currentTemp} °F`;
 };
 
 const increaseTemp = () => {
     state.temp += 1,
     formatTempAndBackground();
+    console.log(state.temp);
 };
 
 const decreaseTemp = () => {
-    --state.temp,
+    state.temp -= 1,
+    console.log(state.temp);
     formatTempAndBackground();
 };
 
 const registerEventHandlers = () => {
     formatTempAndBackground(),
-    document.getElementById('currentTempButton').addEventListener('click', findLatAndLong),
+    // document.getElementById('currentTempButton').addEventListener('click', findLatAndLong),
     document.getElementById('increaseTempControl').addEventListener('click', increaseTemp),
     document.getElementById('decreaseTempControl').addEventListener('click', decreaseTemp),
     updateCityName(),

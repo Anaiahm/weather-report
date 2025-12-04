@@ -11,15 +11,15 @@
     <script defer src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script defer src="./src/index.js"></script>
 </head>
-<body>
+<body class="spring-weather">
     <header>
-        <h1>Please enjoy live footage of the <span class="location-input" id="headerCityName">`${cityNameInput}`</span> cabin!</h1>
+        <h1>Please enjoy live footage of the <span class="location-input" id="headerCityName">Seattle</span> cabin!</h1>
     </header>
     <main>
         <section class="temperature-box">
             <h2>Temperature</h2>
             <button class="temp-buttons" id="increaseTempControl"><img src="assets/images/plus.png"></button>
-            <h3>**--°F**</h3>
+            <h3 id="temp-value">72</h3>
             <button class="temp-buttons" id="decreaseTempControl"><img src="assets/images/minus.png"></button>
         </section>
         <section class="sky-box">
@@ -34,7 +34,8 @@
         </section>
         <section class="location-box">
             <h2>Location</h2>
-            <h3 id="cityNameInput">**Seattle**</h3>
+            <input type="text" id="cityNameInput" value="Seattle">
+            <button id="cityNameReset" class="city-name__reset-btn">Reset</button>
         </section>
     </main>
     <footer>
