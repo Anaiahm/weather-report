@@ -37,19 +37,20 @@ const getWeather = () => {
     });
 };
 
-// const updateSky = () => {
-//     let e = document.getElementById('skySelect').value;
-//     let t = document.getElementById('sky');
-//     let n = '';
-//     let a = '';
-//     'Cloudy' === e ? (n = '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️',
-//     a = 'cloudy') : 'Sunny' === e ? (n = '☁️     ☁️   ☁️ ☀️ ☁️  ☁️',
-//     a = 'sunny') : 'Rainy' === e ? (n = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧',
-//     a = 'rainy') : 'Snowy' === e && (n = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨',
-//     a = 'snowy'),
-//     t.textContent = n,
-//     document.getElementById('gardenContent').classList = 'garden__content ' + a;
-// };
+const updateSky = () => {
+    let skyText = document.getElementById('options').value;
+    let tempSky = '';
+    if (skyText === 'Cloudy'){
+        tempSky = '☁️';
+    } else if (skyText === 'Sunny'){
+        tempSky = '☀️';
+    } else if (skyText === 'Rainy'){
+        tempSky = '🌧';
+    } else if (skyText === 'Snowy'){
+        tempSky = '❄️';
+    }
+    document.getElementById('skyEmoji').textContent = tempSky;
+};
 
 const updateCityName = () => {
     let cityNameInput = document.getElementById('cityNameInput').value;
@@ -105,9 +106,9 @@ const registerEventHandlers = () => {
     document.getElementById('decreaseTempControl').addEventListener('click', decreaseTemp),
     updateCityName(),
     document.getElementById('cityNameInput').addEventListener('input', updateCityName),
-    document.getElementById('cityNameReset').addEventListener('click', resetCityName);
-    // updateSky(),
-    // document.getElementById('skySelect').addEventListener('change', updateSky);
+    document.getElementById('cityNameReset').addEventListener('click', resetCityName),
+    updateSky(),
+    document.getElementById('options').addEventListener('change', updateSky);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
