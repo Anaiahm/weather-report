@@ -12,5 +12,33 @@
     <script defer src="./src/index.js"></script>
 </head>
 <body>
+    <header>
+        <h1>Please enjoy live footage of the <span class="location-input" id="headerCityName">`${cityNameInput}`</span> cabin!</h1>
+    </header>
+    <main>
+        <section class="temperature-box">
+            <h2>Temperature</h2>
+            <button class="temp-buttons" id="increaseTempControl"><img src="assets/images/plus.png"></button>
+            <h3>**--°F**</h3>
+            <button class="temp-buttons" id="decreaseTempControl"><img src="assets/images/minus.png"></button>
+        </section>
+        <section class="sky-box">
+            <h2 for="sky-options">Sky </h2>
+            <!-- <h3 for="sky-options">**drop-down-box**</h3> -->
+            <select name="options" id="options">
+                <option value="sky1">Sunny</option>
+                <option value="sky2">Rainy</option>
+                <option value="sky3">Cloudy</option>
+                <option value="sky4">Snowy</option>
+            </select>
+        </section>
+        <section class="location-box">
+            <h2>Location</h2>
+            <h3 id="cityNameInput">**Seattle**</h3>
+        </section>
+    </main>
+    <footer>
+
+    </footer>
 </body>
 </html>

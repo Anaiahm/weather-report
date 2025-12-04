@@ -1,0 +1,54 @@
+/* Temperature Display Color */
+.freezingTemperature {
+    color: #4caf50; /* A neutral color for temperature */
+}
+.coldTemperature {
+    color: #ff5722; /* A warm color for temperature */
+}
+.comfyTemperature {
+    color: #2196f3; /* A cool color for temperature */
+}
+.warmTemperature {
+    color: #ff9800; /* An orange color for temperature */
+}
+.hotTemperature {
+    color: #f44336; /* A red color for temperature */
+}
+
+.title-location {
+    text-decoration: underline;
+}
+
+/* .locationInput { */
+    /* padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 200px;
+    margin-bottom: 20px; */
+/* } */
+
+#background {
+    background-size: cover;
+    background-position: center;
+}
+
+.winter-background {
+    background-image: url('../assets/winter.jpg');
+}
+
+.spring-background {
+    background-image: url('../assets/spring.jpg');
+}
+
+.summer-background {
+    background-image: url('../assets/summer.jpg');
+}
+
+.fall-background {
+    background-image: url('../assets/fall.jpg');
+}
+
+.temp-buttons {
+    background-color: transparent;
+}
