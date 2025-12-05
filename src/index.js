@@ -38,7 +38,7 @@ const getWeather = () => {
 };
 
 const updateSky = () => {
-    let skyText = document.getElementById('options').value;
+    let skyText = document.getElementById('sky-options').value;
     let tempSky = '';
     if (skyText === 'Cloudy'){
         tempSky = '☁️';
@@ -108,7 +108,7 @@ const registerEventHandlers = () => {
     document.getElementById('cityNameInput').addEventListener('input', updateCityName),
     document.getElementById('cityNameReset').addEventListener('click', resetCityName),
     updateSky(),
-    document.getElementById('options').addEventListener('change', updateSky);
+    document.getElementById('sky-options').addEventListener('change', updateSky);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
