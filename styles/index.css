@@ -1,39 +1,8 @@
-/* Temperature Display Color */
-.freezingTemperature {
-    color: #4caf50; /* A neutral color for temperature */
-}
-.coldTemperature {
-    color: #ff5722; /* A warm color for temperature */
-}
-.comfyTemperature {
-    color: #2196f3; /* A cool color for temperature */
-}
-.warmTemperature {
-    color: #ff9800; /* An orange color for temperature */
-}
-.hotTemperature {
-    color: #f44336; /* A red color for temperature */
-}
-
-.title-location {
-    text-decoration: underline;
-}
-
-/* .locationInput { */
-    /* padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    width: 200px;
-    margin-bottom: 20px; */
-/* } */
-
 body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
-
 
 .winter-weather {
     background-image: url('../assets/images/winter-weather.png');
@@ -62,12 +31,15 @@ body {
 .warm-weather {
     color: orange;
 }
+
 .cool-weather {
     color: yellow;
 }
+
 .chilly-weather {
     color: green;
 }
+
 .freezing-weather {
     color: teal;
 }
@@ -83,6 +55,7 @@ footer {
     font-size: 0.9em;
     z-index: 10;
 }
+
 footer p {
     margin: 0;
 }
@@ -96,17 +69,63 @@ header {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
-/* main {
-    position: absolute;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
+html, body {
+    height: 100%;
+    margin: 0;
+}
 
-    display: flex;
-    flex-direction: row;
-    gap: 50px;
+body {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
 
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 15px 30px;
+main {
+    display: grid;
+    grid-auto-flow: column;
+    gap: 2rem;
+    justify-content: center;
+    align-content: end; 
+    padding: 3rem;
+}
+
+.temp-controls {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: auto auto auto;
+    align-items: center;
+    gap: 1rem;
+}
+
+.temperature-box,
+.sky-box,
+.location-box {
+    background-color: rgba(0, 0, 0, 0.45);
+    color: white;
+    padding: 1rem;
     border-radius: 8px;
-} */
+    text-align: center;
+}
+
+button {
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.temp-buttons {
+    font-size: 1.5rem;
+}
+
+.location-box button {
+    background-color: bisque;
+    color: black;
+}
+
+@media (max-width: 700px) {
+    main {
+        grid-auto-flow: row;
+        grid-template-columns: 1fr;
+        align-content: center;
+        min-height: auto;
+    }
+}
